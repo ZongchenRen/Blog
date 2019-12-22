@@ -6,6 +6,8 @@ tags: Spring
 
 {% asset_img image01.png  %}
 
+<!-- more -->
+
 # 简介
 
 ## IOC（Inversion of Control） 
