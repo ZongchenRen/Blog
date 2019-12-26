@@ -6,6 +6,8 @@ tags: Spring
 
 {% asset_img image01.png  %}
 
+<!-- more -->
+
 ## 简介
 
 **Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？**
