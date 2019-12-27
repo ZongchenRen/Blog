@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="简介Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？ 以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替XML">
+  <meta name="description" content="简介Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？ 以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替X">
 <meta name="keywords" content="Spring">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SpringBean配置方式">
 <meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;blog&#x2F;SpringBean%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F.html">
 <meta property="og:site_name" content="院长叫我别出来">
-<meta property="og:description" content="简介Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？ 以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替XML">
+<meta property="og:description" content="简介Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？ 以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替X">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-26T17:18:03.000Z">
+<meta property="og:updated_time" content="2019-12-27T03:19:44.359Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://gogosoft.cn/blog/SpringBean%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">
@@ -193,6 +193,8 @@
       <div class="post-body">
           
 
+<a id="more"></a>
+
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？</strong></p>
 <p>以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替XML配置文件了；而在Spring 3.x提供了三种选择，分别是：基于XML的配置、基于注解的配置和基于Java类的配置。</p>
 <hr>
@@ -241,10 +243,69 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">装配集合类</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">value-pro-1</span></pre></td></tr></table></figure>
 
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">总结：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   List 属性为对应的 &lt;list&gt; 元素进行装配，然后通过多个 &lt;value&gt; 元素设值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   Map 属性为对应的 &lt;map&gt; 元素进行装配，然后通过多个 &lt;entry&gt; 元素设值， 只是 entry 包含一个键值对(key-value)的设置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">   Properties 属性为对应的 &lt;properties&gt; 元素进行装配，通过多个 &lt;property&gt; 元素设值，只是 properties 元素有一个必填属性 key ，然后可以设置值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">   Set 属性为对应的 &lt;set&gt; 元素进行装配，然后通过多个 &lt;value&gt; 元素设值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"> 对于数组而言，可以使用 &lt;array&gt; 设置值，然后通过多个 &lt;value&gt; 元素设值。</span></pre></td></tr></table></figure>
 
 
-<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。</p>
-<h2 id="基于Java类的配置"><a href="#基于Java类的配置" class="headerlink" title="基于Java类的配置"></a>基于Java类的配置</h2><p>应用场景：当实例化Bean的逻辑比较复杂时，则比较适合基于Java类配置的方式。</p>
+
+<h3 id="命名空间装配"><a href="#命名空间装配" class="headerlink" title="命名空间装配"></a>命名空间装配</h3><p> Spring 还提供了对应的命名空间的定义，只是在使用命名空间的时候要先引入对应的命名空间和 XML 模式（XSD）文件。</p>
+<ul>
+<li><h4 id="p-命名空间（声明setter属性）"><a href="#p-命名空间（声明setter属性）" class="headerlink" title="p-命名空间（声明setter属性）"></a>p-命名空间（声明setter属性）</h4></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xmlns:p="http://www.springframework.org/schema/p"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">.   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloWorld2"</span> <span class="attr">class</span>=<span class="string">"spring01.HelloWorld"</span> <span class="attr">p:name</span>=<span class="string">"Java 是世界上最好的语言"</span>/&gt;</span></span></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h4 id="c-命名空间（声明构造参数）"><a href="#c-命名空间（声明构造参数）" class="headerlink" title="c-命名空间（声明构造参数）"></a>c-命名空间（声明构造参数）</h4><p>如下面一个javabean：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   <span class="keyword">private</span> String brand;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   <span class="keyword">private</span> String corp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">   <span class="keyword">private</span> <span class="keyword">double</span> price;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String brand, String corp, <span class="keyword">double</span> price)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">super</span>();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">this</span>.brand = brand;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">this</span>.corp = corp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">this</span>.price = price;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr></table></figure>
+
+<p>​       使用c-命名空间来声明构造器参数：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xmlns:c="http://www.springframework.org/schema/c"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">.  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--    不适用命名空间--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car4"</span> <span class="attr">class</span>=<span class="string">"spring01.Car"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"Audi"</span> <span class="attr">index</span>=<span class="string">"0"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"上海"</span> <span class="attr">index</span>=<span class="string">"1"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"200000"</span> <span class="attr">index</span>=<span class="string">"2"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--    使用命名空间--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"car5"</span> <span class="attr">class</span>=<span class="string">"spring01.Car"</span> <span class="attr">c:brand</span>=<span class="string">"Audi"</span> <span class="attr">c:corp</span>=<span class="string">"上海"</span> <span class="attr">c:price</span>=<span class="string">"20000"</span>/&gt;</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="util-命名空间"><a href="#util-命名空间" class="headerlink" title="util-命名空间"></a>util-命名空间</h4></li>
+</ul>
+<p>util-命名空间提供的所有元素：</p>
+<table>
+<thead>
+<tr>
+<th align="left">元素</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="util:constant" target="_blank" rel="noopener">util:constant</a></td>
+<td>引用某个类型public static 域，并将其暴露为bean</td>
+</tr>
+<tr>
+<td align="left"><a href="util:list" target="_blank" rel="noopener">util:list</a></td>
+<td>创建一个java.util.list类型的bean，其中包含值或者引用</td>
+</tr>
+<tr>
+<td align="left"><a href="util:map" target="_blank" rel="noopener">util:map</a></td>
+<td>创建一个java.util.map类型的bean，其中包含值或者引用</td>
+</tr>
+<tr>
+<td align="left"><a href="util:properties" target="_blank" rel="noopener">util:properties</a></td>
+<td>创建一个java.util.properties类型的bean</td>
+</tr>
+<tr>
+<td align="left"><a href="util:property-path" target="_blank" rel="noopener">util:property-path</a></td>
+<td>引用一个属性（或内嵌属性），并将其暴露为bean</td>
+</tr>
+<tr>
+<td align="left"><a href="util:set" target="_blank" rel="noopener">util:set</a></td>
+<td>创建一个java.util.set类型的bean，其中包含值或者引用</td>
+</tr>
+</tbody></table>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引入util-命名空间之前 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"list"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">list</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"bean1"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"bean2"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">list</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引入util-命名空间之后 --&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">util:list</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"bean1"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"bean2"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;/<span class="name">util:list</span>&gt;</span></span></pre></td></tr></table></figure>
+
+
+
+<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。这里多做描述，也是<strong>最常用的配置方式</strong>。</p>
+<h2 id="基于Java类的配置"><a href="#基于Java类的配置" class="headerlink" title="基于Java类的配置"></a>基于Java类的配置</h2><p>应用场景：当实例化Bean的逻辑比较复杂时，则比较适合基于Java类配置的方式。比如，你想要将第三方库中的组件装配到你的应用中，在这种情况下，是没有办法在它的类上添加@Component和@Autowired注解的，因此就不能使用基于注解的配置方案了。</p>
 
       </div>
       
@@ -307,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML的配置"><span class="nav-number">2.</span> <span class="nav-text">基于XML的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML装配常用的集合类"><span class="nav-number">2.1.</span> <span class="nav-text">XML装配常用的集合类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于注解的配置"><span class="nav-number">3.</span> <span class="nav-text">基于注解的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Java类的配置"><span class="nav-number">4.</span> <span class="nav-text">基于Java类的配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于XML的配置"><span class="nav-number">2.</span> <span class="nav-text">基于XML的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML装配常用的集合类"><span class="nav-number">2.1.</span> <span class="nav-text">XML装配常用的集合类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间装配"><span class="nav-number">2.2.</span> <span class="nav-text">命名空间装配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-命名空间（声明setter属性）"><span class="nav-number">2.2.1.</span> <span class="nav-text">p-命名空间（声明setter属性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-命名空间（声明构造参数）"><span class="nav-number">2.2.2.</span> <span class="nav-text">c-命名空间（声明构造参数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#util-命名空间"><span class="nav-number">2.2.3.</span> <span class="nav-text">util-命名空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于注解的配置"><span class="nav-number">3.</span> <span class="nav-text">基于注解的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Java类的配置"><span class="nav-number">4.</span> <span class="nav-text">基于Java类的配置</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
