@@ -1,6 +1,7 @@
 ---
 title: Spring IOC
 date: 2019-12-22 23:37:15
+categories: Spring
 tags: Spring
 ---
 

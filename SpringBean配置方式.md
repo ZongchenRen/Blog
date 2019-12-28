@@ -1,6 +1,7 @@
 ---
 title: SpringBean配置方式
 date: 2019-12-26 23:49:14
+categories: Spring
 tags: Spring
 ---
 
