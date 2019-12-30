@@ -46,15 +46,18 @@
   };
 </script>
 
-  <meta name="keywords" content="Java,数据库,架构,Spring,容器化，微服务">
+  <meta name="description" content="简介IoC（Inversion of Control）其思想是反转资源获取的方向，传统的资源查找方式是要求组件想容器发送请求来查找资源，作为回应，容器适时地返回资源。 而应用了IoC之后，则是容器主动地将资源推送给它所管理的组件，组件所要做的仅是选择一种合适的方式来接收资源，这种行为也被称为查找的被动形式。 DI（Dependency Injection）IoC的另一种表述方式：即组件以一">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hi Future">
-<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;categories&#x2F;Spring&#x2F;index.html">
+<meta property="og:title" content="Spring IoC">
+<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;blog&#x2F;SpringIoC.html">
 <meta property="og:site_name" content="Hi Future">
+<meta property="og:description" content="简介IoC（Inversion of Control）其思想是反转资源获取的方向，传统的资源查找方式是要求组件想容器发送请求来查找资源，作为回应，容器适时地返回资源。 而应用了IoC之后，则是容器主动地将资源推送给它所管理的组件，组件所要做的仅是选择一种合适的方式来接收资源，这种行为也被称为查找的被动形式。 DI（Dependency Injection）IoC的另一种表述方式：即组件以一">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-30T16:44:19.293Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gogosoft.cn/categories/Spring/">
+<link rel="canonical" href="http://gogosoft.cn/blog/SpringIoC">
 
 
 <script id="page-configurations">
@@ -66,7 +69,8 @@
   };
 </script>
 
-  <title>分类: Spring | Hi Future</title>
+  <title>Spring IoC | Hi Future
+  </title>
   
 
 
@@ -195,98 +199,86 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Spring IoC
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Spring
-          <small>分类</small>
-        </h1>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+      
+      
+      <div class="post-body">
+          
+
+<a id="more"></a>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="IoC（Inversion-of-Control）"><a href="#IoC（Inversion-of-Control）" class="headerlink" title="IoC（Inversion of Control）"></a>IoC（Inversion of Control）</h2><p>其思想是反转资源获取的方向，传统的资源查找方式是要求组件想容器发送请求来查找资源，作为回应，容器适时地返回资源。</p>
+<p>而应用了IoC之后，则是容器主动地将资源推送给它所管理的组件，组件所要做的仅是选择一种合适的方式来接收资源，这种行为也被称为查找的被动形式。</p>
+<h2 id="DI（Dependency-Injection）"><a href="#DI（Dependency-Injection）" class="headerlink" title="DI（Dependency Injection）"></a>DI（Dependency Injection）</h2><p>IoC的另一种表述方式：即组件以一写预先定义好的方式（如：setter方法）接收来自如容器的资源注入。相较于IoC而言，这种表述更直接。</p>
+<h1 id="Spring-IoC-实现"><a href="#Spring-IoC-实现" class="headerlink" title="Spring IoC 实现"></a>Spring IoC 实现</h1><blockquote>
+<p>在Spring IoC容器读取Bean配置 创建Bean实例之前，必须对容器进行实例化。只有在容器实例化后，才可以从IoC容器里获取Bean实例并使用。</p>
+</blockquote>
+<p>Spring提供了两种类型的IoC容器实现</p>
+<ul>
+<li><p>BeanFactory</p>
+<p>  IoC的基本实现。</p>
+</li>
+</ul>
+<ul>
+<li><p>AppliacationContext</p>
+<p>  提供了更多的高级特性，是BeanFactory的子接口,代表的是一个IoC容器.</p>
+</li>
+</ul>
+<pre><code>BeanFactory是Spring框架的基础设施，面向的是Spring本身；
+AppliacationContext面向的是使用Spring框架的开发者;
+几乎所有的应用场景都直接使用AppliacationContext而非底层的BeanFactory;
+无论使用何种方式，配置文件是相同的.</code></pre><h2 id="AppliacationContext"><a href="#AppliacationContext" class="headerlink" title="AppliacationContext"></a>AppliacationContext</h2><p>AppliacationContext主要实现类：</p>
+<ul>
+<li><p>ClassPathXmlApplicationContext</p>
+<p>  从类路径下加载配置文件。</p>
+</li>
+<li><p>FileSystemXmlApplicationContext<br>  从系统文件中加载配置文件。</p>
+<pre><code>相关父类或拓展类可查看spring源码。</code></pre></li>
+</ul>
+<h1 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h1><ol>
+<li><a href="https://docs.spring.io/spring/docs/5.2.2.RELEASE/spring-framework-reference/core.html#beans" target="_blank" rel="noopener">  <strong>官方 The IoC Container</strong></a></li>
+<li><a href="https://javadoop.com/post/spring-ioc" target="_blank" rel="noopener">  Spring IoC 容器源码分析</a></li>
+</ol>
+
+      </div>
+      
+      
+      
     </div>
+    
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-30T23:47:03+08:00"
-              content="2019-12-30">
-          12-30
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/30/SpringEL/" itemprop="url">
-            <span itemprop="name">SpringEL</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-26T23:49:14+08:00"
-              content="2019-12-26">
-          12-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/26/SpringBean%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">SpringBean配置方式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-22T23:37:15+08:00"
-              content="2019-12-22">
-          12-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/22/SpringIoC/" itemprop="url">
-            <span itemprop="name">Spring IoC</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-    </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -333,6 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC（Inversion-of-Control）"><span class="nav-number">1.1.</span> <span class="nav-text">IoC（Inversion of Control）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DI（Dependency-Injection）"><span class="nav-number">1.2.</span> <span class="nav-text">DI（Dependency Injection）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-IoC-实现"><span class="nav-number">2.</span> <span class="nav-text">Spring IoC 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AppliacationContext"><span class="nav-number">2.1.</span> <span class="nav-text">AppliacationContext</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐阅读"><span class="nav-number">3.</span> <span class="nav-text">推荐阅读</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
