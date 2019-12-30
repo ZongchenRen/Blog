@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="Hi Future">
 <meta property="og:description" content="简介Spring提供了BenaFactory和ApplicationContext两种类型的IOC容器实现，Spring又是如何将Bean装配到IOC容器中的呢？ 以前Java框架基本都采用了XML作为配置文件，但是现在Java框架又不约而同地支持基于Annotation的“零配置”来代替XML配置文件，Struts2、Hibernate、Spring都开始使用Annotation来代替X">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-28T07:27:30.264Z">
+<meta property="og:updated_time" content="2019-12-28T10:13:55.544Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://gogosoft.cn/blog/SpringBean%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">
@@ -334,7 +334,7 @@
 
 
 
-<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。这里多做描述，也是<strong>最常用的配置方式</strong>。</p>
+<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。这里暂不多做描述，也是<strong>最常用的配置方式</strong>。</p>
 <h2 id="基于Java类的配置"><a href="#基于Java类的配置" class="headerlink" title="基于Java类的配置"></a>基于Java类的配置</h2><p>应用场景：当实例化Bean的逻辑比较复杂时，则比较适合基于Java类配置的方式。比如，你想要将第三方库中的组件装配到你的应用中，在这种情况下，是没有办法在它的类上添加@Component和@Autowired注解的，因此就不能使用基于注解的配置方案了。</p>
 
       </div>

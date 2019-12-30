@@ -116,7 +116,7 @@
 
 
 
-<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。这里多做描述，也是<strong>最常用的配置方式</strong>。</p>
+<h2 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h2><p>应用场景：当Bean的实现类是当前项目开发的，可以直接在Java类中使用基于注解的配置，配置相对比较简单。这里暂不多做描述，也是<strong>最常用的配置方式</strong>。</p>
 <h2 id="基于Java类的配置"><a href="#基于Java类的配置" class="headerlink" title="基于Java类的配置"></a>基于Java类的配置</h2><p>应用场景：当实例化Bean的逻辑比较复杂时，则比较适合基于Java类配置的方式。比如，你想要将第三方库中的组件装配到你的应用中，在这种情况下，是没有办法在它的类上添加@Component和@Autowired注解的，因此就不能使用基于注解的配置方案了。</p>
 ]]></content>
       <categories>
