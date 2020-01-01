@@ -10,10 +10,12 @@
 <p>具体使用说明可参考 <a href="http://code.google.com/p/kaptcha/" target="_blank" rel="noopener">kaptcha官网</a> 。</p>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>验证码</tag>
+        <tag>前端</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -39,8 +41,8 @@
         <category>Spring</category>
       </categories>
       <tags>
-        <tag>表达式</tag>
         <tag>Spring</tag>
+        <tag>表达式</tag>
       </tags>
   </entry>
   <entry>
