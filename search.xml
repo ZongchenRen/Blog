@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>kaptcha 谷歌验证码</title>
+    <url>/2020/01/01/kaptcha/</url>
+    <content><![CDATA[<h1 id="pom依赖"><a href="#pom依赖" class="headerlink" title="pom依赖"></a>pom依赖</h1><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.penggle<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
+
+
+
+<p>具体使用说明可参考 <a href="http://code.google.com/p/kaptcha/" target="_blank" rel="noopener">kaptcha官网</a> 。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>验证码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringEL</title>
     <url>/2019/12/30/SpringEL/</url>
     <content><![CDATA[<img src="/2019/12/30/SpringEL/image01.png" class="">
@@ -23,8 +39,8 @@
         <category>Spring</category>
       </categories>
       <tags>
-        <tag>Spring</tag>
         <tag>表达式</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>

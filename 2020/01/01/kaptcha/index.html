@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="Spring    并发编程    容器技术方案研究">
-<meta name="keywords" content="计划">
-<meta property="og:type" content="website">
-<meta property="og:title" content="2020 plan">
-<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;blog&#x2F;2020-plan.html">
+  <meta name="description" content="pom依赖1&amp;lt;dependency&amp;gt;2  &amp;lt;groupId&amp;gt;com.github.penggle&amp;lt;&#x2F;groupId&amp;gt;3  &amp;lt;artifactId&amp;gt;kaptcha&amp;lt;&#x2F;artifactId&amp;gt;4  &amp;lt;version&amp;gt;2.3.2&amp;lt;&#x2F;version&amp;gt;5&amp;lt;&#x2F;dependency&amp;gt;    具体使用说明可参考 kapt">
+<meta name="keywords" content="验证码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kaptcha 谷歌验证码">
+<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;2020&#x2F;01&#x2F;01&#x2F;kaptcha&#x2F;index.html">
 <meta property="og:site_name" content="Hi Future">
-<meta property="og:description" content="Spring    并发编程    容器技术方案研究">
+<meta property="og:description" content="pom依赖1&amp;lt;dependency&amp;gt;2  &amp;lt;groupId&amp;gt;com.github.penggle&amp;lt;&#x2F;groupId&amp;gt;3  &amp;lt;artifactId&amp;gt;kaptcha&amp;lt;&#x2F;artifactId&amp;gt;4  &amp;lt;version&amp;gt;2.3.2&amp;lt;&#x2F;version&amp;gt;5&amp;lt;&#x2F;dependency&amp;gt;    具体使用说明可参考 kapt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-24T11:08:09.985Z">
+<meta property="og:updated_time" content="2020-01-01T12:57:07.633Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gogosoft.cn/blog/2020-plan">
+<link rel="canonical" href="http://gogosoft.cn/2020/01/01/kaptcha/">
 
 
 <script id="page-configurations">
@@ -65,12 +65,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>2020 plan | Hi Future
-  </title>
+  <title>kaptcha 谷歌验证码 | Hi Future</title>
   
 
 
@@ -199,56 +198,134 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gogosoft.cn/2020/01/01/kaptcha/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Cache">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi Future">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          kaptcha 谷歌验证码
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">2020 plan
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2020-01-01 20:49:59" itemprop="dateCreated datePublished" datetime="2020-01-01T20:49:59+08:00">2020-01-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/01/kaptcha/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/01/kaptcha/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
-</div>
+        </div>
+      </header>
 
-</header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h1 id="pom依赖"><a href="#pom依赖" class="headerlink" title="pom依赖"></a>pom依赖</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.penggle<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></pre></td></tr></table></figure>
+
+
+
+<p>具体使用说明可参考 <a href="http://code.google.com/p/kaptcha/" target="_blank" rel="noopener">kaptcha官网</a> 。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>碎银打赏，以资鼓励！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
       
-      
-      <div class="post-body">
-          
-
-<a id="more"></a>
-
-<ul>
-<li><p>Spring  </p>
-</li>
-<li><p>并发编程  </p>
-</li>
-<li><p>容器技术方案研究  </p>
-</li>
-</ul>
-
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Cache 微信支付">
+        <p>微信支付</p>
       </div>
       
-      
-      
-    </div>
-    
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Cache 支付宝">
+        <p>支付宝</p>
+      </div>
 
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag"><i class="fa fa-tag"></i> 验证码</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/30/SpringEL/" rel="prev" title="SpringEL">
+      <i class="fa fa-chevron-left"></i> SpringEL
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
+
   </div>
 
 
@@ -301,6 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pom依赖"><span class="nav-number">1.</span> <span class="nav-text">pom依赖</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
