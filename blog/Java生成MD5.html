@@ -46,15 +46,18 @@
   };
 </script>
 
-  <meta name="keywords" content="Java,数据库,架构,Spring,容器化，微服务">
+  <meta name="description" content="简介MD5消息摘要算法（英语：MD5 Message-Digest Algorithm），一种被广泛使用的密码散列函数，可以产生出一个128位（16字节）的散列值（hash value），用于确保信息传输完整一致。 MD5加密算法为现在应用最广泛的哈希算法之一，该算法广泛应用于互联网网站的用户文件加密，能够将用户密码加密为128位的长整数。数据库并不明文存储用户密码，而是在用户登录时将输入">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="website">
-<meta property="og:title" content="院长叫我别出来">
-<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;archives&#x2F;index.html">
+<meta property="og:title" content="Java生成MD5">
+<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;blog&#x2F;Java%E7%94%9F%E6%88%90MD5.html">
 <meta property="og:site_name" content="院长叫我别出来">
+<meta property="og:description" content="简介MD5消息摘要算法（英语：MD5 Message-Digest Algorithm），一种被广泛使用的密码散列函数，可以产生出一个128位（16字节）的散列值（hash value），用于确保信息传输完整一致。 MD5加密算法为现在应用最广泛的哈希算法之一，该算法广泛应用于互联网网站的用户文件加密，能够将用户密码加密为128位的长整数。数据库并不明文存储用户密码，而是在用户登录时将输入">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-05T07:04:12.370Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gogosoft.cn/archives/">
+<link rel="canonical" href="http://gogosoft.cn/blog/Java%E7%94%9F%E6%88%90MD5">
 
 
 <script id="page-configurations">
@@ -66,7 +69,8 @@
   };
 </script>
 
-  <title>归档 | 院长叫我别出来</title>
+  <title>Java生成MD5 | 院长叫我别出来
+  </title>
   <noscript>
   <style>
   .use-motion .brand,
@@ -188,200 +192,60 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Java生成MD5
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 8 篇日志。 继续努力。</span>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+      
+      
+      <div class="post-body">
+          
+
+<a id="more"></a>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>MD5</strong>消息摘要算法（英语：<strong>MD5</strong> Message-Digest Algorithm），一种被广泛使用的密码散列函数，可以产生出一个128位（16字节）的散列值（hash value），用于确保信息传输完整一致。</p>
+<p>MD5加密算法为现在应用最广泛的哈希算法之一，该算法广泛应用于互联网网站的用户文件加密，能够将用户密码加密为128位的长整数。数据库并不明文存储用户密码，而是在用户登录时将输入密码字符串进行MD5加密，与数据库中所存储的MD5值匹配，从而降低密码数据库被盗取后用户损失的风险。</p>
+<h1 id="基于Spring实践"><a href="#基于Spring实践" class="headerlink" title="基于Spring实践"></a>基于Spring实践</h1><p>spring中提供了加密工具类<code>org.springframework.util.DigestUtils</code>，上手简单，可以再工具类的基础上根据自己的业务需求进行加密优化。如在加密时增加加密盐等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Util</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 加密盐</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String SALT = <span class="string">"!@#$%^&amp;^%$sdf"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getMD5</span><span class="params">(String str)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    String base = str + <span class="string">"/"</span> + SALT;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    Assert.notNull(str, <span class="string">"加密对象为空"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    String md5 = DigestUtils.md5DigestAsHex(str.getBytes());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    System.out.println(md5);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> md5;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    MD5Util.getMD5(<span class="string">"123"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>上面demo的<strong>加密盐</strong>是固定的，实际项目中可以增加自己的逻辑，最好做到动态加盐。</p>
+
+      </div>
+      
+      
+      
     </div>
+    
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-05T14:22:42+08:00"
-              content="2020-01-05">
-          01-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/05/Java%E7%94%9F%E6%88%90MD5/" itemprop="url">
-            <span itemprop="name">Java生成MD5</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-03T14:13:29+08:00"
-              content="2020-01-03">
-          01-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/03/Java%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/" itemprop="url">
-            <span itemprop="name">Java注解总结</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-02T22:32:29+08:00"
-              content="2020-01-02">
-          01-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/02/CountUp/" itemprop="url">
-            <span itemprop="name">数字滚动插件CountUp</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-01T20:49:59+08:00"
-              content="2020-01-01">
-          01-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/01/kaptcha/" itemprop="url">
-            <span itemprop="name">kaptcha 谷歌验证码</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-30T23:47:03+08:00"
-              content="2019-12-30">
-          12-30
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/30/SpringEL/" itemprop="url">
-            <span itemprop="name">SpringEL</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-26T23:49:14+08:00"
-              content="2019-12-26">
-          12-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/26/SpringBean%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">SpringBean配置方式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-22T23:37:15+08:00"
-              content="2019-12-22">
-          12-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/22/SpringIoC/" itemprop="url">
-            <span itemprop="name">Spring IoC</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-21T16:56:53+08:00"
-              content="2019-12-21">
-          12-21
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/12/21/2020-plan/" itemprop="url">
-            <span itemprop="name">2020 plan</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-
-    </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -428,6 +292,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Spring实践"><span class="nav-number">2.</span> <span class="nav-text">基于Spring实践</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
