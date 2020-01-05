@@ -25,14 +25,13 @@ public class MD5Util {
   // 加密盐
   private static final String SALT = "!@#$%^&^%$sdf";
   public static String getMD5(String str) {
-    String base = str + "/" + SALT;
     Assert.notNull(str, "加密对象为空");
-    String md5 = DigestUtils.md5DigestAsHex(str.getBytes());
-    System.out.println(md5);
+    String base = str + "/" + SALT;
+    String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
     return md5;
   }
   public static void main(String args[]) {
-    MD5Util.getMD5("123");
+    MD5Util.getMD5("院长");
   }
 }
 ```
