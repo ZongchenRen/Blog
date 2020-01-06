@@ -18,7 +18,7 @@ MD5加密算法为现在应用最广泛的哈希算法之一，该算法广泛�
 
 # 基于Spring实践
 
-spring中提供了加密工具类`org.springframework.util.DigestUtils`，上手简单，可以再工具类的基础上根据自己的业务需求进行加密优化。如在加密时增加加密盐等。
+spring中提供了加密工具类`org.springframework.util.DigestUtils`，上手简单，可以在工具类的基础上根据自己的业务需求进行加密优化。如在加密时增加加密盐等。
 
 ```java
 public class MD5Util {
