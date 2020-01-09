@@ -29,6 +29,9 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">18:18:22.404 [http-nio-80-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms</span></pre></td></tr><tr><td class="code"><pre><span class="line">18:18:33.046 [http-nio-80-exec-5] INFO  com.xxx.controller.RunDemo - 报告院长，这里输出了一条日志~~~</span></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
       <tags>
         <tag>Log4j2</tag>
       </tags>
