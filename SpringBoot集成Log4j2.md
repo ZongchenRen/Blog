@@ -1,7 +1,7 @@
 ---
 title: SpringBoot集成Log4j2
 date: 2020-01-09 17:52:47
-Categories: springboot
+categories: Spring Boot
 tags: Log4j2
 ---
 
