@@ -3,7 +3,11 @@
   <entry>
     <title>SpringAOP</title>
     <url>/2020/01/21/SpringAOP/</url>
-    <content><![CDATA[<h1 id="在Spring中启用-AspectJ注解支持"><a href="#在Spring中启用-AspectJ注解支持" class="headerlink" title="在Spring中启用@AspectJ注解支持"></a>在Spring中启用@AspectJ注解支持</h1><ul>
+    <content><![CDATA[<img src="/2020/01/21/SpringAOP/image01.png" class="">
+
+<a id="more"></a>
+
+<h1 id="在Spring中启用-AspectJ注解支持"><a href="#在Spring中启用-AspectJ注解支持" class="headerlink" title="在Spring中启用@AspectJ注解支持"></a>在Spring中启用@AspectJ注解支持</h1><ul>
 <li>必须依赖<code>aopalliance.jar</code>、<code>aspectjweaver.jar</code>、<code>spring-aspects.jar</code></li>
 <li>xml的<beans>根元素中配置aop Schema</li>
 <li>要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素<code>&lt;aop:aspectj-autoproxy/&gt;</code>，当SpringIoc容器检测到Bean配置文件中的<code>&lt;aop:aspectj-autoproxy/&gt;</code>元素时，会自动为与AspectJ切面匹配的Bean创建代理</li>
@@ -13,12 +17,26 @@
 <li>需要把该类放入到IOC容器中<code>@Component</code></li>
 <li>需要声明为一个切面 <code>@AspectJ</code></li>
 </ul>
-<h1 id="AspectJ支持五种类型的通知注解"><a href="#AspectJ支持五种类型的通知注解" class="headerlink" title="AspectJ支持五种类型的通知注解"></a>AspectJ支持五种类型的通知注解</h1><p>通知是标注有某种注解的简单的java方法。</p>
-<h2 id="Before"><a href="#Before" class="headerlink" title="@Before"></a>@Before</h2><p>前置通知，在方法执行之前执行</p>
-<h2 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h2><p>后置通知，在方法执行之后执行</p>
-<h2 id="AfterRunning"><a href="#AfterRunning" class="headerlink" title="@AfterRunning"></a>@AfterRunning</h2><p>返回通知，在方法返回结果之后执行</p>
-<h2 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h2><p>异常通知，在方法抛出异常之后执行</p>
-<h2 id="Around"><a href="#Around" class="headerlink" title="@Around"></a>@Around</h2><p>环绕通知，围绕着方法执行</p>
+<h1 id="AspectJ支持五种类型的通知注解"><a href="#AspectJ支持五种类型的通知注解" class="headerlink" title="AspectJ支持五种类型的通知注解"></a>AspectJ支持五种类型的通知注解</h1><p>通知是标注有某种注解的简单的java方法。在方法前添加通知注解如@Before注解，并将切入点表达式的值作为注解值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Before</span>(<span class="string">"execution(public int com.aop.math.add(int,int))"</span>) <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeMethod</span><span class="params">(JoinPoint joinPoint)</span></span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    	System.out.println(<span class="string">"The method begins...."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">		  System.out.println(joinPoint.getTarget());</span></pre></td></tr><tr><td class="code"><pre><span class="line">		  System.out.println(joinPoint.getSignature().getName());</span></pre></td></tr><tr><td class="code"><pre><span class="line">		  System.out.println(Arrays.asList(joinPoint.getArgs()));</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="Before"><a href="#Before" class="headerlink" title="@Before"></a>@Before</h2><p><strong>前置通知</strong>，在方法执行之前执行。</p>
+<h2 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h2><p><strong>后置通知</strong>，在方法执行之后（无论是否发生异常）执行，即连接点返回结果或者抛出异常的时候，后置通知来记录方法的终止。</p>
+<p>在后置通知中，还不能访问目标方法执行的结果，需要在返回通知中访问。</p>
+<h2 id="AfterReturning"><a href="#AfterReturning" class="headerlink" title="@AfterReturning"></a>@AfterReturning</h2><p><strong>返回通知</strong>，在方法正常结束执行代码之后执行。返回通知是可以访问方法的返回值的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@AfterReturning</span>(value = <span class="string">"execution(public int com.aop.math.*(int,int))"</span>, returning = <span class="string">"result"</span>) <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">(</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="function"><span class="params">   JoinPoint joinPoint, Object result)</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  System.out.println(joinPoint.getSignature().getName());</span></pre></td></tr><tr><td class="code"><pre><span class="line">  System.out.println(<span class="string">"The method returning....result:"</span> + result);</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h2><p><strong>异常通知</strong>，在方法抛出异常之后执行。可以访问异常对象，切可以指定在出现特定异常是再执行通知代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@AfterThrowing</span>(value = <span class="string">"execution(public int com.aop.math.*(int,int))"</span>, throwing = <span class="string">"e"</span>) <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="function"><span class="params">   Exception e)</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  System.out.println(<span class="string">"The method AfterThrowing...."</span> + e);</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="Around"><a href="#Around" class="headerlink" title="@Around"></a>@Around</h2><p><strong>环绕通知</strong>，围绕着方法执行。</p>
+<ul>
+<li>环绕通知需要携带ProceedingJoinPoint类型的参数；</li>
+<li>环绕通知类似于动态代理的全过程，ProceedingJoinPoint类型的参数可以决定是否执行目标方法；</li>
+<li>且环绕通知必须有返回值，返回值即为目标方法的返回值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Around</span>(value = <span class="string">"execution(public int com.aop.math.*(int,int))"</span>) <span class="function"><span class="keyword">public</span> Object <span class="title">afteAroundrThrowing</span><span class="params">(</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="function"><span class="params">   ProceedingJoinPoint proceedingJoinPoint)</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  Object result = <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    System.out.println(<span class="string">"前置通知..."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="comment">//执行目标方法</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    result = proceedingJoinPoint.proceed();</span></pre></td></tr><tr><td class="code"><pre><span class="line">    System.out.println(<span class="string">"返回通知..."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    throwable.printStackTrace();</span></pre></td></tr><tr><td class="code"><pre><span class="line">    System.out.println(<span class="string">"异常通知..."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">  System.out.println(<span class="string">"后置通知..."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  System.out.println(<span class="string">"The method around...."</span> + result);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="keyword">return</span> result;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Spring</category>

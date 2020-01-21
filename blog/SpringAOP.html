@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="keywords" content="AOP">
-<meta property="og:type" content="article">
+  <meta name="description" content="在Spring中启用@AspectJ注解支持 必须依赖aopalliance.jar、aspectjweaver.jar、spring-aspects.jar xml的根元素中配置aop Schema 要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素&amp;lt;aop:aspectj-autoproxy&#x2F;&amp;gt;，当SpringIoc容器检">
+<meta name="keywords" content="AOP">
+<meta property="og:type" content="website">
 <meta property="og:title" content="SpringAOP">
-<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;2020&#x2F;01&#x2F;21&#x2F;SpringAOP&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;blog&#x2F;SpringAOP.html">
 <meta property="og:site_name" content="院长叫我别出来">
+<meta property="og:description" content="在Spring中启用@AspectJ注解支持 必须依赖aopalliance.jar、aspectjweaver.jar、spring-aspects.jar xml的根元素中配置aop Schema 要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素&amp;lt;aop:aspectj-autoproxy&#x2F;&amp;gt;，当SpringIoc容器检">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;2020&#x2F;01&#x2F;21&#x2F;SpringAOP&#x2F;image01.png">
-<meta property="og:updated_time" content="2020-01-21T16:36:36.880Z">
+<meta property="og:updated_time" content="2020-01-21T16:36:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;2020&#x2F;01&#x2F;21&#x2F;SpringAOP&#x2F;image01.png">
 
-<link rel="canonical" href="http://gogosoft.cn/2020/01/21/SpringAOP/">
+<link rel="canonical" href="http://gogosoft.cn/blog/SpringAOP">
 
 
 <script id="page-configurations">
@@ -65,11 +65,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true
+    isPost: false
   };
 </script>
 
-  <title>SpringAOP | 院长叫我别出来</title>
+  <title>SpringAOP | 院长叫我别出来
+  </title>
   <noscript>
   <style>
   .use-motion .brand,
@@ -191,78 +192,34 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
   <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gogosoft.cn/2020/01/21/SpringAOP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Cache">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="院长叫我别出来">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          SpringAOP
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表</span>
+<h1 class="post-title" itemprop="name headline">SpringAOP
+</h1>
 
-              <time title="创建时间：2020-01-21 17:08:12" itemprop="dateCreated datePublished" datetime="2020-01-21T17:08:12+08:00">2020-01-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">吐槽：</span>
-    
-    <a title="valine" href="/2020/01/21/SpringAOP/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/21/SpringAOP/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
+<div class="post-meta">
   
 
-        </div>
-      </header>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <img src="/2020/01/21/SpringAOP/image01.png" class="">
+      
+      
+      <div class="post-body">
+          
 
 <a id="more"></a>
 
@@ -297,57 +254,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Around</span>(value = <span class="string">"execution(public int com.aop.math.*(int,int))"</span>) <span class="function"><span class="keyword">public</span> Object <span class="title">afteAroundrThrowing</span><span class="params">(</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="params">   ProceedingJoinPoint proceedingJoinPoint)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  Object result = <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">try</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    System.out.println(<span class="string">"前置通知..."</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//执行目标方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    result = proceedingJoinPoint.proceed();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    System.out.println(<span class="string">"返回通知..."</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    throwable.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    System.out.println(<span class="string">"异常通知..."</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  System.out.println(<span class="string">"后置通知..."</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  System.out.println(<span class="string">"The method around...."</span> + result);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> result;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 
-    </div>
-
-    
-    
-    
-        <div class="reward-container">
-  <div>碎银打赏，以资鼓励！</div>
-  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.jpg" alt="Cache 微信支付">
-        <p>微信支付</p>
       </div>
       
-      <div style="display: inline-block;">
-        <img src="/images/alipay.jpg" alt="Cache 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
-</div>
-
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/AOP/" rel="tag"><i class="fa fa-tag"></i> AOP</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/01/09/SpringBoot%E9%9B%86%E6%88%90Log4j2/" rel="prev" title="SpringBoot集成Log4j2">
-      <i class="fa fa-chevron-left"></i> SpringBoot集成Log4j2
-    </a></div>
-      <div class="post-nav-item"></div>
+      
+      
     </div>
-      </footer>
     
-  </article>
-  
-  
-  
 
-
+    
+    
+    
   </div>
 
 
