@@ -46,15 +46,18 @@
   };
 </script>
 
-  <meta name="keywords" content="Java,数据库,架构,Spring,容器化，微服务">
-<meta property="og:type" content="website">
-<meta property="og:title" content="院长叫我别出来">
-<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;archives&#x2F;2020&#x2F;01&#x2F;index.html">
+  <meta name="description" content="在Spring中启用@AspectJ注解支持 必须依赖aopalliance.jar、aspectjweaver.jar、spring-aspects.jar xml的根元素中配置aop Schema 要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素&amp;lt;aop:aspectj-autoproxy&#x2F;&amp;gt;，当SpringIoc容器检测到Be">
+<meta name="keywords" content="AOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringAOP">
+<meta property="og:url" content="http:&#x2F;&#x2F;gogosoft.cn&#x2F;2020&#x2F;01&#x2F;21&#x2F;SpringAOP&#x2F;index.html">
 <meta property="og:site_name" content="院长叫我别出来">
+<meta property="og:description" content="在Spring中启用@AspectJ注解支持 必须依赖aopalliance.jar、aspectjweaver.jar、spring-aspects.jar xml的根元素中配置aop Schema 要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素&amp;lt;aop:aspectj-autoproxy&#x2F;&amp;gt;，当SpringIoc容器检测到Be">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-21T15:41:11.583Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gogosoft.cn/archives/2020/01/">
+<link rel="canonical" href="http://gogosoft.cn/2020/01/21/SpringAOP/">
 
 
 <script id="page-configurations">
@@ -62,11 +65,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | 院长叫我别出来</title>
+  <title>SpringAOP | 院长叫我别出来</title>
   <noscript>
   <style>
   .use-motion .brand,
@@ -192,153 +195,147 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gogosoft.cn/2020/01/21/SpringAOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Cache">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="院长叫我别出来">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SpringAOP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表</span>
+
+              <time title="创建时间：2020-01-21 17:08:12" itemprop="dateCreated datePublished" datetime="2020-01-21T17:08:12+08:00">2020-01-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 10 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">吐槽：</span>
+    
+    <a title="valine" href="/2020/01/21/SpringAOP/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/21/SpringAOP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-21T17:08:12+08:00"
-              content="2020-01-21">
-          01-21
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/21/SpringAOP/" itemprop="url">
-            <span itemprop="name">SpringAOP</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-09T17:52:47+08:00"
-              content="2020-01-09">
-          01-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/09/SpringBoot%E9%9B%86%E6%88%90Log4j2/" itemprop="url">
-            <span itemprop="name">SpringBoot集成Log4j2</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-05T14:22:42+08:00"
-              content="2020-01-05">
-          01-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/05/Java%E7%94%9F%E6%88%90MD5/" itemprop="url">
-            <span itemprop="name">Java生成MD5</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-03T14:13:29+08:00"
-              content="2020-01-03">
-          01-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/03/Java%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/" itemprop="url">
-            <span itemprop="name">Java注解总结</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-02T22:32:29+08:00"
-              content="2020-01-02">
-          01-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/02/CountUp/" itemprop="url">
-            <span itemprop="name">数字滚动插件CountUp</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-01T20:49:59+08:00"
-              content="2020-01-01">
-          01-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/01/kaptcha/" itemprop="url">
-            <span itemprop="name">kaptcha 谷歌验证码</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <h1 id="在Spring中启用-AspectJ注解支持"><a href="#在Spring中启用-AspectJ注解支持" class="headerlink" title="在Spring中启用@AspectJ注解支持"></a>在Spring中启用@AspectJ注解支持</h1><ul>
+<li>必须依赖<code>aopalliance.jar</code>、<code>aspectjweaver.jar</code>、<code>spring-aspects.jar</code></li>
+<li>xml的<beans>根元素中配置aop Schema</li>
+<li>要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素<code>&lt;aop:aspectj-autoproxy/&gt;</code>，当SpringIoc容器检测到Bean配置文件中的<code>&lt;aop:aspectj-autoproxy/&gt;</code>元素时，会自动为与AspectJ切面匹配的Bean创建代理</li>
+</ul>
+<h1 id="如何把类声明为一个切面"><a href="#如何把类声明为一个切面" class="headerlink" title="如何把类声明为一个切面"></a>如何把类声明为一个切面</h1><p>把横切关注点的代码抽象到切面的类中，在AspectJ注解中，切面只是一个带有<code>@AspectJ</code>注解的<code>Java类</code>。</p>
+<ul>
+<li>需要把该类放入到IOC容器中<code>@Component</code></li>
+<li>需要声明为一个切面 <code>@AspectJ</code></li>
+</ul>
+<h1 id="AspectJ支持五种类型的通知注解"><a href="#AspectJ支持五种类型的通知注解" class="headerlink" title="AspectJ支持五种类型的通知注解"></a>AspectJ支持五种类型的通知注解</h1><p>通知是标注有某种注解的简单的java方法。</p>
+<h2 id="Before"><a href="#Before" class="headerlink" title="@Before"></a>@Before</h2><p>前置通知，在方法执行之前执行</p>
+<h2 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h2><p>后置通知，在方法执行之后执行</p>
+<h2 id="AfterRunning"><a href="#AfterRunning" class="headerlink" title="@AfterRunning"></a>@AfterRunning</h2><p>返回通知，在方法返回结果之后执行</p>
+<h2 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h2><p>异常通知，在方法抛出异常之后执行</p>
+<h2 id="Around"><a href="#Around" class="headerlink" title="@Around"></a>@Around</h2><p>环绕通知，围绕着方法执行</p>
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>碎银打赏，以资鼓励！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Cache 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Cache 支付宝">
+        <p>支付宝</p>
+      </div>
+
   </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/AOP/" rel="tag"><i class="fa fa-tag"></i> AOP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/09/SpringBoot%E9%9B%86%E6%88%90Log4j2/" rel="prev" title="SpringBoot集成Log4j2">
+      <i class="fa fa-chevron-left"></i> SpringBoot集成Log4j2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
 
+  </div>
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -385,6 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在Spring中启用-AspectJ注解支持"><span class="nav-number">1.</span> <span class="nav-text">在Spring中启用@AspectJ注解支持</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何把类声明为一个切面"><span class="nav-number">2.</span> <span class="nav-text">如何把类声明为一个切面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AspectJ支持五种类型的通知注解"><span class="nav-number">3.</span> <span class="nav-text">AspectJ支持五种类型的通知注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Before"><span class="nav-number">3.1.</span> <span class="nav-text">@Before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#After"><span class="nav-number">3.2.</span> <span class="nav-text">@After</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AfterRunning"><span class="nav-number">3.3.</span> <span class="nav-text">@AfterRunning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AfterThrowing"><span class="nav-number">3.4.</span> <span class="nav-text">@AfterThrowing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Around"><span class="nav-number">3.5.</span> <span class="nav-text">@Around</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

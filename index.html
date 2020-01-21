@@ -197,6 +197,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gogosoft.cn/2020/01/21/SpringAOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Cache">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="院长叫我别出来">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/21/SpringAOP/" class="post-title-link" itemprop="url">SpringAOP</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表</span>
+
+              <time title="创建时间：2020-01-21 17:08:12" itemprop="dateCreated datePublished" datetime="2020-01-21T17:08:12+08:00">2020-01-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">吐槽：</span>
+    
+    <a title="valine" href="/2020/01/21/SpringAOP/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/21/SpringAOP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="在Spring中启用-AspectJ注解支持"><a href="#在Spring中启用-AspectJ注解支持" class="headerlink" title="在Spring中启用@AspectJ注解支持"></a>在Spring中启用@AspectJ注解支持</h1><ul>
+<li>必须依赖<code>aopalliance.jar</code>、<code>aspectjweaver.jar</code>、<code>spring-aspects.jar</code></li>
+<li>xml的<beans>根元素中配置aop Schema</li>
+<li>要在SpringIoc容器中启用AspectJ注解支持，只要在Bean配置文件中定义一个空的XML元素<code>&lt;aop:aspectj-autoproxy/&gt;</code>，当SpringIoc容器检测到Bean配置文件中的<code>&lt;aop:aspectj-autoproxy/&gt;</code>元素时，会自动为与AspectJ切面匹配的Bean创建代理</li>
+</ul>
+<h1 id="如何把类声明为一个切面"><a href="#如何把类声明为一个切面" class="headerlink" title="如何把类声明为一个切面"></a>如何把类声明为一个切面</h1><p>把横切关注点的代码抽象到切面的类中，在AspectJ注解中，切面只是一个带有<code>@AspectJ</code>注解的<code>Java类</code>。</p>
+<ul>
+<li>需要把该类放入到IOC容器中<code>@Component</code></li>
+<li>需要声明为一个切面 <code>@AspectJ</code></li>
+</ul>
+<h1 id="AspectJ支持五种类型的通知注解"><a href="#AspectJ支持五种类型的通知注解" class="headerlink" title="AspectJ支持五种类型的通知注解"></a>AspectJ支持五种类型的通知注解</h1><p>通知是标注有某种注解的简单的java方法。</p>
+<h2 id="Before"><a href="#Before" class="headerlink" title="@Before"></a>@Before</h2><p>前置通知，在方法执行之前执行</p>
+<h2 id="After"><a href="#After" class="headerlink" title="@After"></a>@After</h2><p>后置通知，在方法执行之后执行</p>
+<h2 id="AfterRunning"><a href="#AfterRunning" class="headerlink" title="@AfterRunning"></a>@AfterRunning</h2><p>返回通知，在方法返回结果之后执行</p>
+<h2 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="@AfterThrowing"></a>@AfterThrowing</h2><p>异常通知，在方法抛出异常之后执行</p>
+<h2 id="Around"><a href="#Around" class="headerlink" title="@Around"></a>@Around</h2><p>环绕通知，围绕着方法执行</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://gogosoft.cn/2020/01/09/SpringBoot%E9%9B%86%E6%88%90Log4j2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1048,7 +1147,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1061,7 +1160,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
