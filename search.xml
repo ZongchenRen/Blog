@@ -43,7 +43,12 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Order</span>(<span class="number">0</span>) <span class="meta">@Aspect</span> <span class="meta">@Component</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggingAspect</span> </span>&#123;&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="meta">@Order</span>(<span class="number">1</span>) <span class="meta">@Component</span> <span class="meta">@Aspect</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidationAspect</span> </span>&#123;&#125;</span></pre></td></tr></table></figure>
 
 <p>如上面两个切面，<code>LoggingAspect</code>中的切面优先执行。</p>
-]]></content>
+<h1 id="重用切点表达式"><a href="#重用切点表达式" class="headerlink" title="重用切点表达式"></a>重用切点表达式</h1><ul>
+<li>定义一个方法，声明切入点表达式，一般情况下，该方法不需要添加其他的代码。</li>
+<li>使用<code>@Pointcut</code>来声明切入点表达式</li>
+<li>后面的其他同志直接使用方法名来直接阴影切入点表达式。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span> <span class="meta">@Aspect</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidationAspect</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   <span class="meta">@Pointcut</span>(value = <span class="string">"execution( public int aop.ArithmeticCaculator.*(..))"</span>) </span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">declareJoinPointExpression</span><span class="params">()</span> </span>&#123;&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   <span class="meta">@Before</span>(<span class="string">"declareJoinPointExpression()"</span>) <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">validateArgs</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">      System.out.println(<span class="string">"validate:"</span> + Arrays.asList(joinPoint.getArgs()));</span></pre></td></tr><tr><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Spring</category>
       </categories>
