@@ -92,10 +92,41 @@ tags:
     throwable.printStackTrace();
     System.out.println("异常通知...");
   }
-
   System.out.println("后置通知...");
   System.out.println("The method around...." + result);
   return result;
 }
 ```
 
+# 切面的优先级
+
+当一个实现类有多个切面时，可以使用`@Order`注解制定切面的优先级，值越小，优先级越高。`@Order`的默认值为int的最大值`2<<31-1`
+
+```java
+public @interface Order {
+    int value() default 2147483647;
+}
+```
+
+```java
+@Order(0) @Aspect @Component public class LoggingAspect {}
+@Order(1) @Component @Aspect public class ValidationAspect {}
+```
+
+如上面两个切面，`LoggingAspect`中的切面优先执行。
+
+# 重用切点表达式
+
+- 定义一个方法，声明切入点表达式，一般情况下，该方法不需要添加其他的代码。
+- 使用`@Pointcut`来声明切入点表达式
+- 后面的其他同志直接使用方法名来直接阴影切入点表达式。
+
+```java
+@Component @Aspect public class ValidationAspect {
+   @Pointcut(value = "execution( public int aop.ArithmeticCaculator.*(..))") 
+  public void declareJoinPointExpression() {}
+   @Before("declareJoinPointExpression()") public void validateArgs(JoinPoint joinPoint) {
+      System.out.println("validate:" + Arrays.asList(joinPoint.getArgs()));
+   }
+}
+```
