@@ -9,7 +9,7 @@ tags:
 ---
 
 {% asset_img image01.png  %}
-n
+
 <!-- more -->
 
 # 在C或者C++中回调函数的定义
