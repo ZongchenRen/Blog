@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java回调函数</title>
+    <url>/2020/02/01/Java%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<img src="/2020/02/01/Java%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/image01.png" class="">
+<p>n</p>
+<a id="more"></a>
+
+<h1 id="在C或者C-中回调函数的定义"><a href="#在C或者C-中回调函数的定义" class="headerlink" title="在C或者C++中回调函数的定义"></a>在C或者C++中回调函数的定义</h1><p>程序在调用一个函数时，将自己的函数的地址作为参数传递给程序调用的函数时（那么这个自己的函数称回调函数）</p>
+<h1 id="Java中定义"><a href="#Java中定义" class="headerlink" title="Java中定义"></a>Java中定义</h1><p>Java中没有指针，不能传递方法的地址，一般采用接口回调实现：把实现某一接口的类创建的对象的引用赋给该接口声明的接口变量，那么该接口变量就可以调用被类实现的接口的方法。</p>
+<h1 id="回调实现原理"><a href="#回调实现原理" class="headerlink" title="回调实现原理"></a>回调实现原理</h1><p>首先创建一个回调对象，然后再创建一个控制器对象，将回调对象需要被调用的方法告诉控制器对象。控制器对象负责检查某个场景是否出现或某个条件是否满足。当此场景出现或此条件满足时，自动调用回调对象的方法。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><ol>
+<li>创建一个回调接口</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 回调接口</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICallBack</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建实现类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 实现类</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallBack</span> <span class="keyword">implements</span> <span class="title">ICallBack</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    System.out.println(<span class="string">"执行run方法..."</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>控制类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 控制类</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="keyword">private</span> ICallBack callBack;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Controller</span><span class="params">(ICallBack callBack)</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">this</span>.callBack = callBack;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="comment">//***核心***</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    callBack.run();</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<ul>
+<li>运行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgramRun</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    Controller controller = <span class="keyword">new</span> Controller(<span class="keyword">new</span> CallBack());</span></pre></td></tr><tr><td class="code"><pre><span class="line">    controller.doSomething();</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/bjyfb/article/details/10462555" target="_blank" rel="noopener">https://blog.csdn.net/bjyfb/article/details/10462555</a></p>
+<p><a href="http://www.jcodecraeer.com/a/chengxusheji/java/2012/0822/370.html" target="_blank" rel="noopener">http://www.jcodecraeer.com/a/chengxusheji/java/2012/0822/370.html</a></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringAOP</title>
     <url>/2020/01/21/SpringAOP/</url>
     <content><![CDATA[<img src="/2020/01/21/SpringAOP/image01.png" class="">
