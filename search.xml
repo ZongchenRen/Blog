@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Mysql索引</title>
+    <url>/2020/02/15/Mysql%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<img src="/2020/02/15/Mysql%E7%B4%A2%E5%BC%95/image01.png" class="">
+
+<a id="more"></a>
+
+<h1 id="MyISAM索引引擎（非聚集索引）"><a href="#MyISAM索引引擎（非聚集索引）" class="headerlink" title="MyISAM索引引擎（非聚集索引）"></a><strong>MyISAM索引引擎（非聚集索引）</strong></h1><p>​    索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。</p>
+<h1 id="InnoDB-索引引擎（聚集索引）"><a href="#InnoDB-索引引擎（聚集索引）" class="headerlink" title="InnoDB 索引引擎（聚集索引）"></a><strong>InnoDB 索引引擎（聚集索引）</strong></h1><p>​    B+Tree作为索引引擎，数据文件本身就是索引文件，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。</p>
+<h1 id="最左前缀原理及优化"><a href="#最左前缀原理及优化" class="headerlink" title="最左前缀原理及优化"></a><strong>最左前缀原理及优化</strong></h1><ol>
+<li><strong>全列匹配</strong></li>
+</ol>
+<p>​       当按照索引中所有列进行精确匹配（这里精确匹配指“=”或“IN”匹配）时，索引可以被用到。</p>
+<p>​       理论上索引对顺序是敏感的，但是由于MySQL的查询优化器会自动调整where子句的条件顺序以使用适合的索引。</p>
+<ol start="2">
+<li><strong>最左前缀匹配</strong></li>
+</ol>
+<p>当查询条件精确匹配索引的左边连续一个或几个列时,如索引是A-B-C，where子句用到了A或者A-B,可以走部分索引，即条件组成的最左前缀。</p>
+<ol start="3">
+<li><strong>查询条件用到了索引中列的精确匹配，但是中间某个条件未提供</strong></li>
+</ol>
+<p>如索引是A-B-C,查询的where子句是A-C,根据最左前缀匹配规则，只走A索引。</p>
+<ol start="4">
+<li><strong>查询条件没有指定索引第一列</strong></li>
+</ol>
+<p>​     由于不是最左前缀，索引这样的查询显然用不到索引。</p>
+<ol start="5">
+<li><strong>匹配某列的前缀字符串</strong></li>
+</ol>
+<p>​      如果通配符%不出现在开头，则可以用到索引，但根据具体情况不同可能只会用其中一个前缀。</p>
+<ol start="6">
+<li><strong>范围查询</strong></li>
+</ol>
+<p>​       范围列可以用到索引（必须是最左前缀），但是范围列后面的列无法用到索引。同时，索引最多用于一个范围列，因此如果查询   条件中有两个范围列则无法全用到索引</p>
+<ol start="7">
+<li><strong>查询条件中含有函数或表达式</strong></li>
+</ol>
+<p>​         如果查询条件中含有函数或表达式，则MySQL不会为这列使用索引。</p>
+<h1 id="InnoDB的主键选择与插入优化"><a href="#InnoDB的主键选择与插入优化" class="headerlink" title="InnoDB的主键选择与插入优化"></a><strong>InnoDB的主键选择与插入优化</strong></h1><p>在使用InnoDB存储引擎时，如果没有特别的需要，请永远使用一个与业务无关的自增字段作为主键。</p>
+<p>InnoDB使用聚集索引，数据记录本身被存于主索引（一颗B+Tree）的叶子节点上。这就要求同一个叶子节点内（大小为一个内存页或磁盘页）的各条数据记录按主键顺序存放，因此每当有一条新的记录插入时，MySQL会根据其主键将其插入适当的节点和位置，如果页面达到装载因子（InnoDB默认为15/16），则开辟一个新的页（节点）。</p>
+<p>如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。</p>
+<p>这样就会形成一个紧凑的索引结构，近似顺序填满。由于每次插入时也不需要移动已有数据，因此效率很高，也不会增加很多开销在维护索引上。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>索引</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS加减乘除精度运算</title>
     <url>/2020/02/08/JS%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E7%B2%BE%E5%BA%A6%E8%BF%90%E7%AE%97/</url>
     <content><![CDATA[<img src="/2020/02/08/JS%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E7%B2%BE%E5%BA%A6%E8%BF%90%E7%AE%97/image01.png" class="">
